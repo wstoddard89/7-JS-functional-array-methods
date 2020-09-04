@@ -1,9 +1,9 @@
 // #1) ALL PRICE AVERAGES
 
-const itemPrices = items.map(function (item) {
+const prices = items.map(function (item) {
   return item.price;
 });
-const averagePrice = itemPrices.reduce((a, b) => a + b) / itemPrices.length;
+const averagePrice = prices.reduce((a, b) => a + b) / prices.length;
 document.querySelector(
   "#answer1"
 ).innerHTML = `The avergae price is $${averagePrice}`;
@@ -13,59 +13,59 @@ console.log(averagePrice)
 
 // #2) COST BETWEEN 14.00 AND 18.00
 
-const costBetween = items.filter(function (item) {
+const betweenPrice = items.filter(function (item) {
   if (item.price > 14 && item.price < 18) {
     return true;
   }
   return false;
 });
-console.log(costBetween)
-const costBetweenTitle = costBetween
+
+const betweenPriceTitle = betweenPrice
   .map(function (item) {
     return `<li>${item.title}</li>`;
   })
   .join("");
 
-console.log(costBetweenTitle)
+console.log(betweenPriceTitle)
 
-document.querySelector("#answer2").innerHTML = `${costBetweenTitle}`;
+document.querySelector("#answer2").innerHTML = `${betweenPriceTitle}`;
 
 
 
 // #3) WHICH ITEM HAS GBP?
 
-const gbpItem = items.filter(function (item) {
+const gbp = items.filter(function (item) {
   if (item.currency_code === "GBP") {
     return true;
   }
   return false;
 });
-const gbpItemTitle = gbpItem.map(function (item) {
+const gbpTitle = gbp.map(function (item) {
   return `${item.title} $${item.price}`;
 });
 
-console.log(gbpItemTitle)
+console.log(gbpTitle)
 
-document.querySelector("#answer3").innerHTML = `${gbpItemTitle}`;
+document.querySelector("#answer3").innerHTML = `${gbpTitle}`;
 
 
 // #4) WHICH ITEMS ARE MADE OF WOOD?
 
-const woodItems = items.filter(function (item) {
+const wood = items.filter(function (item) {
   if (item.materials.includes("wood")) {
     return true;
   }
   return false;
 });
-const woodItemsTitle = woodItems
+const woodTitle = wood
   .map(function (item) {
     return `<li>${item.title} is made of wood.</li>`;
   })
   .join("");
 
-console.log(woodItemsTitle)
+console.log(woodTitle)
 
-document.querySelector("#answer4").innerHTML = `${woodItemsTitle}`;
+document.querySelector("#answer4").innerHTML = `${woodTitle}`;
 
 
 // #5) WHICH ITEMS ARE MADE OF 8 OR MORE MATERIALS?
